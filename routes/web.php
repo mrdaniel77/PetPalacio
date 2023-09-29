@@ -22,6 +22,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/', [DashboardController::class, 'index']);
 
 
+
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/home', [LoginController::class, 'home']);
