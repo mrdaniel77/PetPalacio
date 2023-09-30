@@ -51,7 +51,7 @@
                      <div class="col-3">
                         <div class="form-group">
                            <label class="form-label" for="email">E-mail:</label>
-                           <input type="email" name="email" id="email" class="form-control" value="@if(isset($usuario)) {{$usuario->email}} @else{{ old('email') }} @endif">
+                           <input type="email" name="email" id="email" class="form-control" value="@if(isset($usuario)) {{$usuario->email}} @else{{ old('email') }} @endif" required>
                         </div>
                      </div>                 
                   </div>
@@ -59,7 +59,7 @@
                      <div class="col-3">
                         <div class="form-group">
                            <label class="form-label" for="senha">Senha:</label>
-                           <input type="password" name="password" id="senha" class="form-control">
+                           <input type="password" name="password" id="senha" class="form-control" required>
                         </div>
                      </div>                     
                   </div>

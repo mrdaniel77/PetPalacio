@@ -13,6 +13,7 @@ class Colaboradores extends Model
         'nome', 
         'cpf', 
         'email',
-        'perfil'
+        'perfil',
+        'observacao'
     ];
 }

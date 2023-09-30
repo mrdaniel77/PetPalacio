@@ -10,8 +10,7 @@ class ColaboradoresController extends Controller
     public function index(Request $request){
         $pesquisa = $request->pesquisa;
         if(!empty($pesquisa)){
-            $colaborador = Colaboradores::with('cliente')
-                            ->where('nome', 'like', "%". $pesquisa."%")
+            $colaborador = Colaboradores::where('nome', 'like', "%". $pesquisa."%")
                             ->orwhere('cpf', 'like', "%". $pesquisa."%")
                             ->orwhere('perfil', 'like', "%". $pesquisa."%")
                             ->paginate(10)->withQueryString();
@@ -30,7 +29,7 @@ class ColaboradoresController extends Controller
 
         $colaborador = Colaboradores::find($id);
 
-        return view('pets.form', compact('colaborador'));
+        return view('colaboradores.form', compact('colaborador'));
     }
     public function salvar(Request $request){
 
@@ -42,18 +41,18 @@ class ColaboradoresController extends Controller
             $colaboradores->update($request->all());
             $message = 'Alterado com sucesso!';
         }
-        return view('colaboradores.index');
+        return redirect('/colaborador')->with('success', $message);
     }
     public function deletar($id){
        
-        $colaboradores = Colaboradores::find($id);
-        if(!empty($pet->id)){
-            $colaboradores->delete();
+        $colaborador = Colaboradores::find($id);
+        if(!empty($colaborador->id)){
+            $colaborador->delete();
             $message = 'Deletado com sucesso';
         }else{
             $message = 'Registro não encontrado';
         }
 
-        return redirect('/colaboradores')->with('danger', $message);
+        return redirect('/colaborador')->with('danger', $message);
     }
 }

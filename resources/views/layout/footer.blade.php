@@ -30,5 +30,6 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/js/pages/dashboard2.js"></script>
+<script src="/js/javascript.js"></script>
 </body>
 </html>

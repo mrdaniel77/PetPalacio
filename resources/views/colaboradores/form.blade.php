@@ -41,7 +41,7 @@
          <div class="card">
             @isset($colaborador)
             <div class="card-header">
-               <a href="/colaborador/novo" class="btn harpia-harpia-color harpia-text-light">
+               <a href="/colaborador/novo" class="btn btn-primary">
                   Novo Colaborador
                   <i class="fas fa-plus"></i>
                </a>
@@ -56,38 +56,41 @@
                      <div class="col-3">
                         <div class="form-group">
                            <label class="form-label" for="nome">Nome:</label>
-                           <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif">
+                           <input required type="text" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif" >
                         </div>
                      </div>
                      <div class="col-3">
                         <div class="form-group">
                            <label class="form-label" for="cpf">CPF:</label>
-                           <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($colaborador)) {{$colaborador->cpf}} @else{{ old('cpf') }} @endif">
+                           <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($colaborador)) {{$colaborador->cpf}} @else{{ old('cpf') }} @endif" required>
                         </div>
-                     </div>                     
+                     </div>
+                     <div class="lala" id="but">
+                        alerta
+                     </div>                 
                      <div class="col-3">
                          <div class="form-group">
                              <label class="form-label" for="email">E-mail:</label>
-                             <input type="text" name="email" id="email" class="form-control" value="@if(isset($colaborador)) {{$colaborador->email}} @else{{ old('email') }} @endif">
+                             <input type="email" name="email" id="email" class="form-control" value="@if(isset($colaborador)) {{$colaborador->email}} @else{{ old('email') }} @endif" required>
                             </div>
                         </div>                 
                         <div class="col-3">
                            <div class="form-group">
-                              <label class="form-label" for="perifl">Perifl:</label>
-                              <input type="number" name="perifl" id="perifl" class="form-control" value="@if(isset($colaborador)) {{$colaborador->perifl}} @else{{ old('perifl') }} @endif">
+                              <label class="form-label" for="perfil">Perfil:</label>
+                              <input type="text" name="perfil" id="perfil" class="form-control" value="@if(isset($colaborador)) {{$colaborador->perfil}} @else{{ old('perfil') }} @endif" required>
                            </div>
                         </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="observacao">Observações:</label>
-                           <textarea class="form-control" name="observacao" id="observacao" rows="3" value="@if(isset($colaborador)){{$colaborador->observacao}}@else{{ old('observacao') }}@endif"></textarea>
+                           <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($colaborador)){{$colaborador->observacao}}@else{{ old('observacao') }}@endif</textarea>
                         </div>
                      </div>
                   </div>
                   <hr>
                   <div class="row">
                      <div class="col" align="start">
-                        <a href="/pet" class="btn btn-danger w-25 hover-shadow">
+                        <a href="/colaborador" class="btn btn-danger w-25 hover-shadow">
                            @if(isset($colaborador))
                            Sair
                            @else

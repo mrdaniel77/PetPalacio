@@ -64,13 +64,13 @@
                               <td class="col-2"> {{$item->email}} </td>                                                      
                               <td class="col-5"> {{$item->perfil}} </td>
                               <td class="col-2">                                 
-                                 <a href="colaborador/visualizar/" class="btn btn-xs mx-1 pt-1 btn-outline-success" title="Visualização">                              
+                                 <a href="colaborador/visualizar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-success" title="Visualização">                              
                                     <i class="fas fa-eye"></i>
                                  </a>
-                                 <a href="colaborador/editar/" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
+                                 <a href="colaborador/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
-                                 <a href="colaborador/deletar/" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
+                                 <a href="colaborador/deletar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
                                     <i class="fas fa-trash"></i>
                                  </a>                                                
                               </td>
