@@ -157,10 +157,7 @@
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-danger" style="width: 75%"></div>
                       </div>
-                    </div>
-                    <button class="observacao">
-                      DSLASDFKAKDSFLKDL
-                    </button>
+                    </div>                    
                     <!-- /.progress-group -->
                     <div class="progress-group">
                       <span class="progress-text">Apenas tosa</span>

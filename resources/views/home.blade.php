@@ -8,8 +8,6 @@
 </head>
 <body>
     <h2>Página bonita</h2>
-
-
     <a href="/login">
         <button>
             Login

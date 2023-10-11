@@ -22,13 +22,13 @@ use App\Http\Controllers\LoginController;
 Route::get('/', [DashboardController::class, 'index']);
 
 
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/logar', [LoginController::class, 'logar'])->name('logar');
+Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout']);
-Route::post('/home', [LoginController::class, 'home']);
+Route::middleware(['auth'])->group(function () {
 
-/* Route::middleware(['auth'])->group(function () {
-}); */
+    Route::get('/dashboard', [DashboardController::class, 'home']);
 
     Route::get('/colaborador', [ColaboradoresController::class, 'index'])->name('colaborador');
     Route::get('/colaborador/novo', [ColaboradoresController::class, 'novo'])->name('colaborador.novo');
@@ -54,10 +54,10 @@ Route::post('/home', [LoginController::class, 'home']);
     Route::post('/servico/salvar', [ServicosController::class, 'salvar'])->name('servico.salvar');
     Route::get('/servico/deletar/{id}', [ServicosController::class, 'deletar'])->name('servico.deletar');
 
-    Route::get('/usuario', [UsuarioController::class, 'index'])->name('usuario');
     Route::get('/usuario/novo', [UsuarioController::class, 'novo'])->name('usuario.novo');
+    Route::get('/usuario', [UsuarioController::class, 'index'])->name('usuario');
     Route::get('/usuario/editar/{id}', [UsuarioController::class, 'editar'])->name('usuario.editar');
     Route::post('/usuario/salvar', [UsuarioController::class, 'salvar'])->name('usuario.salvar');
     Route::get('/usuario/deletar/{id}', [UsuarioController::class, 'deletar'])->name('usuario.deletar');
-
-
+    
+}); 

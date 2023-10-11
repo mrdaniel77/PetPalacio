@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function login(){
-        return view('auth.log');
+    public function index(){
+        return view('auth.login');
     }
 
-    public function home(Request $request){
+    public function logar(Request $request){
+
         $log = $request->validate([
             'email' => ['required', 'email'],
             'password' =>  ['required']
@@ -19,14 +20,14 @@ class LoginController extends Controller
 
         if(Auth::attempt($log)){
             $request->session()->regenerate();
-            return view('layout.dashboard');
+            return redirect()->intended('/dashboard');
         }else{
             return back()->with('erro', 'log errado');
         }
     }
-    
+
     public function logout(){
-        return view('home');
+        return view('auth.login');
     }
 
 }
