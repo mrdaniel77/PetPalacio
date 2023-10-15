@@ -54,37 +54,24 @@
                   <input type="hidden" name="id" value="@if(isset($colaborador)){{$colaborador->id}}@else{{ old('id') }}@endif">
                   <div class="row">
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="nome">Nome:</label>
-                           <input required type="text" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif" >
-                        </div>
+                        <label class="form-label" for="nome">Nome:</label>
+                        <input required type="text" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif" >
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="cpf">CPF:</label>
-                           <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($colaborador)) {{$colaborador->cpf}} @else{{ old('cpf') }} @endif" required>
-                        </div>
-                     </div>
-                     <div class="lala" id="but">
-                        alerta
+                        <label class="form-label" for="cpf">CPF:</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($colaborador)) {{$colaborador->cpf}} @else{{ old('cpf') }} @endif" required>
+                     </div>              
+                     <div class="col-3">
+                        <label class="form-label" for="email">E-mail:</label>
+                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($colaborador)) {{$colaborador->email}} @else{{ old('email') }} @endif" required>
                      </div>                 
                      <div class="col-3">
-                         <div class="form-group">
-                             <label class="form-label" for="email">E-mail:</label>
-                             <input type="email" name="email" id="email" class="form-control" value="@if(isset($colaborador)) {{$colaborador->email}} @else{{ old('email') }} @endif" required>
-                            </div>
-                        </div>                 
-                        <div class="col-3">
-                           <div class="form-group">
-                              <label class="form-label" for="perfil">Perfil:</label>
-                              <input type="text" name="perfil" id="perfil" class="form-control" value="@if(isset($colaborador)) {{$colaborador->perfil}} @else{{ old('perfil') }} @endif" required>
-                           </div>
-                        </div>
+                        <label class="form-label" for="perfil">Perfil:</label>
+                        <input type="text" name="perfil" id="perfil" class="form-control" value="@if(isset($colaborador)) {{$colaborador->perfil}} @else{{ old('perfil') }} @endif" required>
+                     </div>
                      <div class="col-12">
-                        <div class="form-group">
-                           <label class="form-label" for="observacao">Observações:</label>
-                           <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($colaborador)){{$colaborador->observacao}}@else{{ old('observacao') }}@endif</textarea>
-                        </div>
+                        <label class="form-label" for="observacao">Observações:</label>
+                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($colaborador)){{$colaborador->observacao}}@else{{ old('observacao') }}@endif</textarea>
                      </div>
                   </div>
                   <hr>

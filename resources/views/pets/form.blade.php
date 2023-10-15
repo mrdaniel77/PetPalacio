@@ -55,39 +55,31 @@
                   <input type="hidden" name="id" value="@if(isset($pet)){{$pet->id}}@else{{ old('id') }}@endif">
                   <div class="row">
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="nome">Nome do pet:</label>
-                           <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($pet)) {{$pet->nome}} @else{{ old('nome') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="nome">Nome do pet:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($pet)) {{$pet->nome}} @else{{ old('nome') }} @endif" required>
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="raca">Raça do pet:</label>
-                           <input type="text" name="raca" id="raca" class="form-control" value="@if(isset($pet)) {{$pet->raca}} @else{{ old('raca') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="raca">Raça do pet:</label>
+                        <input type="text" name="raca" id="raca" class="form-control" value="@if(isset($pet)) {{$pet->raca}} @else{{ old('raca') }} @endif" required>
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="peso">Peso (kg):</label>
-                           <input type="text" name="peso" id="peso" class="form-control" value="@if(isset($pet)) {{$pet->peso}} @else{{ old('peso') }} @endif" requireds>
-                        </div>
+                        <label class="form-label" for="peso">Peso (kg):</label>
+                        <input type="text" name="peso" id="peso" class="form-control" value="@if(isset($pet)) {{$pet->peso}} @else{{ old('peso') }} @endif" required>
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="dono">Dono do pet:</label>
-                           <select name="cliente_id" id="cliente_id" class="form-control" required>
-                              <option value="">Selecione</option>
-                              @foreach ($dono as $d)
-                                 <option value="{{$d->id}}" @if(isset($pet) && $pet->cliente->id == $d->id) selected @endif>{{$d->nome}}</option>
-                             @endforeach
-                           </select>
-                        </div>
+                        <label class="form-label" for="dono">Dono do pet:</label>
+                        <select name="cliente_id" id="cliente_id" class="form-control" required>
+                           <option value="">Selecione</option>
+                           @foreach ($dono as $d)
+                              <option value="{{$d->id}}" @if(isset($pet) && $pet->cliente->id == $d->id) selected @endif>{{$d->nome}}</option>
+                           @endforeach
+                        </select>
                      </div>
+                  </div>
+                  <div class="row">
                      <div class="col-12">
-                        <div class="form-group">
-                           <label class="form-label" for="observacao">Observações:</label>
-                           <textarea class="form-control" name="observacao" id="observacao" rows="3" >@if(isset($pet)){{$pet->observacao}}@else{{ old('observacao') }}@endif</textarea>
-                        </div>
+                        <label class="form-label" for="observacao">Observações:</label>
+                        <textarea class="form-control" name="observacao" id="observacao" rows="3" >@if(isset($pet)){{$pet->observacao}}@else{{ old('observacao') }}@endif</textarea>
                      </div>
                   </div>
                   <hr>

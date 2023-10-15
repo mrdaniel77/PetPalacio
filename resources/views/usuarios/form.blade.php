@@ -38,36 +38,30 @@
             <div class="col card-body">
                <form action="/usuario/salvar" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="id" value="@if(isset($usuario)){{$usuario->id}}@else{{ old('id') }}@endif">
-                  <div class="row">
+                  <input type="hidden" name="id" value="@if(isset($user)){{$user->id}}@else{{ old('id') }}@endif">
+                  <div class="row justify-content-md-center">
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="nome">Nome:</label>
-                           <input type="text" name="name" id="name" class="form-control" value="@if(isset($usuario)) {{$usuario->name}} @else{{ old('nome') }} @endif">
-                        </div>
+                        <label class="form-label" for="nome">Nome:</label>
+                        <input type="text" name="name" id="name" class="form-control" value="@if(isset($user)) {{$user->name}} @else{{ old('nome') }} @endif">
                      </div>
                   </div>
-                  <div class="row">   
+                  <div class="row justify-content-md-center">   
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="email">E-mail:</label>
-                           <input type="email" name="email" id="email" class="form-control" value="@if(isset($usuario)) {{$usuario->email}} @else{{ old('email') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="email">E-mail:</label>
+                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($user)) {{$user->email}} @else{{ old('email') }} @endif" required>
                      </div>                 
                   </div>
-                  <div class="row">                
+                  <div class="row justify-content-md-center">                
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="senha">Senha:</label>
-                           <input type="password" name="password" id="senha" class="form-control" required>
-                        </div>
+                        <label class="form-label" for="senha">Senha:</label>
+                        <input type="password" name="password" id="senha" class="form-control" value="@if(isset($user)) {{$user->password}} @endif" required>
                      </div>                     
                   </div>
                   <hr>
                   <div class="row">
                      <div class="col" align="start">
                         <a href="/usuario" class="btn btn-danger w-25 hover-shadow">
-                           @if(isset($usuario))
+                           @if(isset($user))
                            Sair
                            @else
                            Cancelar

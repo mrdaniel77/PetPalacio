@@ -30,7 +30,8 @@
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
-
+              <div>
+              </div>
               <div class="info-box-content">
                 <button type="button" class="btn btn-secondary">
                   <a href="/cliente/" style="color: #000;">

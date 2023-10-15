@@ -1,22 +1,31 @@
+@include('layout.header')
+
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">PetPalacio</span>
+    <a href="/dashboard" class="brand-link">
+      <div class="row justify-content-md-center">
+        <img src="/img/logo.png" alt="AdminLTE Logo"  style=" width:10vh;  object-fit: cover; object-position: 50% 100%;" >
+      </div>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class=" row user-panel mt-5 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nome funcionário</a>
-        </div>
+         <a href="/usuario/editar/{{Auth::user()->id}}" class="d-block">
+            {{ Auth::user()->name }}
+         </a>
+         <a href="/logout" >
+            <i class="fas fa-sign-out-alt"></i> 
+         </a>
+       </div>
       </div>
+      
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">

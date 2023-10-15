@@ -55,34 +55,26 @@
                   <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{ old('id') }}@endif">
                   <div class="row">
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="nome">Nome:</label>
-                           <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{ old('nome') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="nome">Nome:</label>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{ old('nome') }} @endif" required>
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="cpf">CPF:</label>
-                           <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{ old('cpf') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="cpf">CPF:</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{ old('cpf') }} @endif" required>
                      </div>                     
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="telefone">Telefone:</label>
-                           <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{ old('telefone') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="telefone">Telefone:</label>
+                        <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{ old('telefone') }} @endif" required>
                      </div>
                      <div class="col-3">
-                        <div class="form-group">
-                           <label class="form-label" for="email">E-mail:</label>
-                           <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{ old('email') }} @endif" required>
-                        </div>
+                        <label class="form-label" for="email">E-mail:</label>
+                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{ old('email') }} @endif" required>
                      </div>                 
+                  </div>
+                  <div class="row">
                      <div class="col-12">
-                        <div class="form-group">
-                           <label class="form-label" for="observacao">Observações:</label>
-                           <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($cliente)){{$cliente->observacao}}@else{{ old('observacao') }}@endif</textarea>
-                        </div>
+                        <label class="form-label" for="observacao">Observações:</label>
+                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($cliente)){{$cliente->observacao}}@else{{ old('observacao') }}@endif</textarea>
                      </div>
                   </div>
                   <hr>
