@@ -52,19 +52,19 @@
             <div class="col card-body">
                <form action="/pet/salvar" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="id" value="@if(isset($pet)){{$pet->id}}@else{{ old('id') }}@endif">
+                  <input type="hidden" name="id" value="@if(isset($pet)){{$pet->id}}@else{{old('id')}}@endif">
                   <div class="row">
                      <div class="col-3">
                         <label class="form-label" for="nome">Nome do pet:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($pet)) {{$pet->nome}} @else{{ old('nome') }} @endif" required>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($pet)){{$pet->nome}}@else{{ old('nome') }} @endif" required>
                      </div>
                      <div class="col-3">
                         <label class="form-label" for="raca">Raça do pet:</label>
-                        <input type="text" name="raca" id="raca" class="form-control" value="@if(isset($pet)) {{$pet->raca}} @else{{ old('raca') }} @endif" required>
+                        <input type="text" name="raca" id="raca" class="form-control" value="@if(isset($pet)){{$pet->raca}}@else{{ old('raca') }} @endif" required>
                      </div>
                      <div class="col-3">
                         <label class="form-label" for="peso">Peso (kg):</label>
-                        <input type="text" name="peso" id="peso" class="form-control" value="@if(isset($pet)) {{$pet->peso}} @else{{ old('peso') }} @endif" required>
+                        <input type="text" name="peso" id="peso" class="form-control" value="@if(isset($pet)){{$pet->peso}}@else{{ old('peso') }} @endif" required>
                      </div>
                      <div class="col-3">
                         <label class="form-label" for="dono">Dono do pet:</label>
