@@ -53,12 +53,12 @@
                <form action="/cliente/salvar" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{old('id')}}@endif">
-                  {{-- <div class="row">
+                  <div class="row">
                      <div class="col-2">
                         <label for="foto" class="form-label">Foto:</label>
                         <input type="file" name="foto_temp" id="foto" class="form-control" value="">
                      </div>
-                  </div> --}}
+                  </div>
                   <div class="row">
                      <div class="col-3">
                         <label class="form-label" for="nome">Nome:</label>
