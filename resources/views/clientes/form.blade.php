@@ -25,7 +25,7 @@
 
    <div class="content">
       <div class="container-fluid">
-         {{-- @if(isset($cliente))
+         @if(isset($cliente))
             <div class="col-12">
                <div class="card card-primary card-outline">
                   <div class="card-body box-profile">
@@ -38,7 +38,7 @@
                   </div>
                </div>
             </div>
-         @endif --}}
+         @endif
          <div class="card">
             @isset($cliente)
             <div class="card-header">
@@ -52,23 +52,29 @@
             <div class="col card-body">
                <form action="/cliente/salvar" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{ old('id') }}@endif">
+                  <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{old('id')}}@endif">
+                  {{-- <div class="row">
+                     <div class="col-2">
+                        <label for="foto" class="form-label">Foto:</label>
+                        <input type="file" name="foto_temp" id="foto" class="form-control" value="">
+                     </div>
+                  </div> --}}
                   <div class="row">
                      <div class="col-3">
                         <label class="form-label" for="nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{ old('nome') }} @endif" required>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{old('nome')}} @endif" required>
                      </div>
                      <div class="col-3">
                         <label class="form-label" for="cpf">CPF:</label>
-                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{ old('cpf') }} @endif" required>
+                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{old('cpf')}} @endif" required>
                      </div>                     
                      <div class="col-3">
                         <label class="form-label" for="telefone">Telefone:</label>
-                        <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{ old('telefone') }} @endif" required>
+                        <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{old('telefone')}} @endif" required>
                      </div>
                      <div class="col-3">
                         <label class="form-label" for="email">E-mail:</label>
-                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{ old('email') }} @endif" required>
+                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{old('email')}} @endif" required>
                      </div>                 
                   </div>
                   <div class="row">
