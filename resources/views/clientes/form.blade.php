@@ -54,19 +54,19 @@
                   @csrf
                   <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{ old('id') }}@endif">
                   <div class="row">
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="nome">Nome:</label>
                         <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{ old('nome') }} @endif" required>
                      </div>
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="cpf">CPF:</label>
                         <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{ old('cpf') }} @endif" required>
                      </div>                     
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="telefone">Telefone:</label>
                         <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{ old('telefone') }} @endif" required>
                      </div>
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="email">E-mail:</label>
                         <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{ old('email') }} @endif" required>
                      </div>                 
@@ -79,8 +79,8 @@
                   </div>
                   <hr>
                   <div class="row">
-                     <div class="col" align="start">
-                        <a href="/cliente" class="btn btn-danger w-25 hover-shadow">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="start">
+                        <a href="/cliente" class="btn btn-danger w-100 hover-shadow">
                            @if(isset($cliente))
                            Sair
                            @else
@@ -89,8 +89,8 @@
                            @endif
                         </a>
                      </div>                     
-                     <div class="col" align="right">
-                        <button type="submit" class="btn btn-success w-25 salvar">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="right">
+                        <button type="submit" class="btn btn-success w-100 salvar">
                            Salvar 
                            <i class="fas fa-save"></i>
                         </button>

@@ -54,19 +54,19 @@
                   @csrf
                   <input type="hidden" name="id" value="@if(isset($pet)){{$pet->id}}@else{{ old('id') }}@endif">
                   <div class="row">
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="nome">Nome do pet:</label>
                         <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($pet)) {{$pet->nome}} @else{{ old('nome') }} @endif" required>
                      </div>
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="raca">Raça do pet:</label>
                         <input type="text" name="raca" id="raca" class="form-control" value="@if(isset($pet)) {{$pet->raca}} @else{{ old('raca') }} @endif" required>
                      </div>
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="peso">Peso (kg):</label>
                         <input type="text" name="peso" id="peso" class="form-control" value="@if(isset($pet)) {{$pet->peso}} @else{{ old('peso') }} @endif" required>
                      </div>
-                     <div class="col-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="dono">Dono do pet:</label>
                         <select name="cliente_id" id="cliente_id" class="form-control" required>
                            <option value="">Selecione</option>
@@ -84,8 +84,8 @@
                   </div>
                   <hr>
                   <div class="row">
-                     <div class="col" align="start">
-                        <a href="/pet" class="btn btn-danger w-25 hover-shadow">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="start">
+                        <a href="/pet" class="btn btn-danger w-100 hover-shadow">
                            @if(isset($pet))
                            Sair
                            @else
@@ -94,8 +94,8 @@
                            @endif
                         </a>
                      </div>                     
-                     <div class="col" align="right">
-                        <button type="submit" class="btn btn-success w-25 salvar">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="right">
+                        <button type="submit" class="btn btn-success w-100 salvar">
                            Salvar 
                            <i class="fas fa-save"></i>
                         </button>
