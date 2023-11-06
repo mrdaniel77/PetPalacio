@@ -14,7 +14,8 @@ class Clientes extends Model
         'cpf', 
         'telefone',
         'email',
-        'observacao'
+        'observacao',
+        'foto'
     ];
 
     public function pet(){

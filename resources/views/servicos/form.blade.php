@@ -36,25 +36,25 @@
             <div class="col card-body">
                <form action="/servico/salvar" method="post" enctype="multipart/form-data">
                   @csrf
-                  <input type="hidden" name="id" value="@if(isset($servico)){{$servico->id}}@else{{ old('id') }}@endif">
+                  <input type="hidden" name="id" value="@if(isset($servico)){{$servico->id}}@else{{old('id')}}@endif">
                   <div class="row">
                      <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                         <label class="form-label" for="nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($servico)) {{$servico->nome}} @else{{ old('nome') }} @endif" required>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($servico)){{$servico->nome}}@else{{old('nome')}}@endif" required>
                      </div>
                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label class="form-label" for="preco">Preço:</label>
-                        <input type="text" name="preco" id="preco" class="form-control" value="@if(isset($servico)) {{$servico->preco}} @else{{ old('preco') }} @endif" required>
+                        <input type="text" name="preco" id="preco" class="form-control" value="@if(isset($servico)) {{$servico->preco}}@else{{old('preco')}}@endif" required>
                      </div>                                  
                      <div class="col-12">
                         <label class="form-label" for="descricao">Descrição do serviço:</label>
-                        <textarea class="form-control" name="descricao" id="descricao" rows="3" required>@if(isset($servico)){{$servico->descricao}}@else{{ old('descricao') }}@endif</textarea>
+                        <textarea class="form-control" name="descricao" id="descricao" rows="3" required>@if(isset($servico)){{$servico->descricao}}@else{{old('descricao')}}@endif</textarea>
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-12">
                         <label class="form-label" for="observacao">Observações:</label>
-                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($servico)){{$servico->observacao}}@else{{ old('observacao') }}@endif</textarea>
+                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($servico)){{$servico->observacao}}@else{{old('observacao')}}@endif</textarea>
                      </div>
                   </div>
                   <hr>
