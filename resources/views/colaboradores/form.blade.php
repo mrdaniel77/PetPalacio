@@ -55,7 +55,7 @@
                   <div class="row">
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="nome">Nome:</label>
-                        <input required type="text" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif" >
+                        <input required type="text" placeholder="Informe seu nome" name="nome" id="nome" class="form-control" value="@if(isset($colaborador)) {{$colaborador->nome}} @else{{ old('nome') }} @endif" >
                      </div>
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="cpf">CPF:</label>
