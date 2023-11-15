@@ -21,7 +21,6 @@ class UsuarioController extends Controller
         return view('usuarios.form', compact('user'));
     }
     public function salvar(Request $request) {
-        
         if(!empty($request->password)){
             $request['password'] = bcrypt($request['password']);
         }else{

@@ -18,6 +18,8 @@
          </div>
       </div>
    </div>
+
+   {{-- LISTAGEM --}}
    <div class="content corpo">
       <div class="container-fluid">
          <div class="card">
@@ -56,27 +58,50 @@
                         <th class="col-1">Ações</th>
                      </tr>
                   </thead>
-                  @foreach ($pet as $item)                      
-                     <tbody>                     
-                           <tr>
-                              <td class="col-3"> {{$item->nome}} </td>
-                              <td class="col-3"> {{$item->raca}} </td>
-                              <td class="col-1"> {{$item->peso}} </td>
-                              <td class="col-4"> {{$item->cliente->nome}} </td>                                                      
-                              <td class="col-1">                                 
-                                 <a href="/pet/visualizar/" class="btn btn-xs mx-1 pt-1 btn-outline-success" title="Visualização">                              
-                                    <i class="fas fa-eye"></i>
-                                 </a>
-                                 <a href="/pet/editar/{{$item->id}}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
-                                    <i class="fas fa-pen"></i>
-                                 </a>
-                                 <a href="/pet/deletar/{{$item->id}}" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
-                                    <i class="fas fa-trash"></i>
-                                 </a>                                                
-                              </td>
-                           </tr>                    
-                     </tbody>
-                  @endforeach
+                  <tbody> 
+                     @foreach ($pet as $item)                      
+                        <tr>
+                           <td class="col-3"> {{$item->nome}} </td>
+                           <td class="col-3"> {{$item->raca}} </td>
+                           <td class="col-1"> {{$item->peso}} </td>
+                           <td class="col-4"> {{$item->cliente->nome}} </td>                                                      
+                           <td class="col-1">                                 
+                              <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="abrirDetalhes('{{ $item->nome }}', '{{ $item->raca }}', {{ $item->peso }}, '{{ $item->cliente->nome }}')">                           
+                                 <i class="fas fa-eye"></i>
+                              </a>
+                              <!-- Modal -->
+                              <div class="modal fade" id="MyModal"  tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title" id="MyModalLabelName"></h5>
+                                       
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                       </button>
+                                    </div>
+                                    <div class="modal-body">   
+                                       <p id="raca" ></p><br>
+                                       <p id="peso" ></p><br>
+                                       <p id="cliente"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                 </div>
+                                 </div>
+                              </div>
+                              {{-- END MODAL --}}                      
+                              <a href="/pet/editar/{{$item->id}}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
+                                 <i class="fas fa-pen"></i>
+                              </a>
+                              <a href="/pet/deletar/{{$item->id}}" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
+                                 <i class="fas fa-trash"></i>
+                              </a>                                                
+                           </td>
+                        </tr>                                               
+                     @endforeach
+                  </tbody>
                </table>
                @if(count($pet) < 1)
                <div class="alert alert-info m-3 text-center">
@@ -88,4 +113,20 @@
       </div>
    </div>
 </div>
+
 @include('layout.footer')
+
+<script>
+   function abrirDetalhes( nome, raca, peso, nomeCliente ) {
+      // Atualiza o conteúdo do modal com os detalhes fornecidos
+      $('#MyModalLabelName').text(nome);
+      $('#raca').text('Raça: ' + raca);
+      $('#peso').text('Peso: ' + peso);
+      $('#cliente').text('Nome do cliente: ' + nomeCliente);
+      // Abre o modal
+      $('#MyModal').modal('show');
+   }
+   function closeModal(){
+      $('#MyModal').modal('hide');
+   }
+</script>

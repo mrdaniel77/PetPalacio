@@ -17,13 +17,12 @@ class PetsController extends Controller
                             ->orwhere('peso', 'like', "%". $pesquisa."%")
                             ->orWhereHas('cliente', function ($query) use ($pesquisa){
                                 $query->where('nome', 'like', "%".$pesquisa."%");
-                            })->paginate(10)->withQueryString();
+                            })->paginate(10);
         }else{
             $pet = Pets::with('cliente')
                             ->orderBy('created_at','asc')
                             ->paginate(10);
         }   
-       
         return view('pets.index', compact('pet'));
     }
     public function novo(){
@@ -33,6 +32,7 @@ class PetsController extends Controller
         return view('pets.form', compact('dono'));
     }
     public function editar($id){
+        
 
         $pet = Pets::find($id);
         $dono = Clientes::select('id', 'nome', 'cpf')->get();
