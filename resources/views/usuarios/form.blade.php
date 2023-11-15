@@ -9,12 +9,12 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1 class="m-0">{{ isset($usuario) ? 'Editar' : 'Novo' }} Usuário </h1>
+               <h1 class="m-0">{{ isset($user) ? 'Editar' : 'Novo' }} Usuário </h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="/usuario" class="harpia-text-color">Usuário</a></li>
-                  <li class="breadcrumb-item active">{{ isset($usuario) ? 'Editar' : 'Novo' }}</li>
+                  <li class="breadcrumb-item active">{{ isset($user) ? 'Editar' : 'Novo' }}</li>
                </ol>
             </div><!-- /.col -->
          </div><!-- /.row -->
@@ -54,7 +54,7 @@
                   <div class="row justify-content-md-center">                
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="senha">Senha:</label>
-                        <input type="password" name="password" id="senha" class="form-control" value="@if(isset($user)) {{$user->password}} @endif" required>
+                        <input type="password" name="password" id="senha" class="form-control"  required>
                      </div>                     
                   </div>
                   <hr>

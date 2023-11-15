@@ -22,7 +22,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }else{
-            return back()->with('erro', 'log errado');
+            return back()->with('erro', 'login errado');
         }
     }
 

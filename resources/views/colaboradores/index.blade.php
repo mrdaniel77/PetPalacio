@@ -64,9 +64,32 @@
                               <td class="col-2"> {{$item->email}} </td>                                                      
                               <td class="col-5"> {{$item->perfil}} </td>
                               <td class="col-2">                                 
-                                 <a href="colaborador/visualizar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-success" title="Visualização">                              
+                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarColaborador('{{ $item->nome }}', '{{ $item->cpf }}',  '{{ $item->email }}', '{{ $item->perfil }}',)">                           
                                     <i class="fas fa-eye"></i>
                                  </a>
+                                 {{-- MODAL --}}
+                                 <div class="modal fade" id="MyModal"  tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <div class="modal-header">
+                                          <h5 class="modal-title" id="MyModalLabelName"></h5>
+                                          
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                          </button>
+                                       </div>
+                                       <div class="modal-body">   
+                                          <p id="cpf" ></p><br>
+                                          <p id="telefone" ></p><br>
+                                          <p id="perfil"></p>
+                                       </div>
+                                       <div class="modal-footer">
+                                          <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                                       </div>
+                                    </div>
+                                    </div>
+                                 </div>
+                                 {{-- END MODAL --}} 
                                  <a href="colaborador/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
@@ -84,3 +107,18 @@
    </div>
 </div>
 @include('layout.footer')
+
+<script>
+   function visualizarColaborador( nome, cpf, telefone, perfil ) {
+      // Atualiza o conteúdo do modal com os detalhes fornecidos
+      $('#MyModalLabelName').text(nome);
+      $('#cpf').text('CPF : ' + cpf);
+      $('#telefone').text('Telefone : ' + telefone);
+      $('#perfil').text('Perfil : ' + perfil);
+      // Abre o modal
+      $('#MyModal').modal('show');
+   }
+   function closeModal(){
+      $('#MyModal').modal('hide');
+   }
+</script>

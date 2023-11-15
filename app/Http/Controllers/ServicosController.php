@@ -14,7 +14,7 @@ class ServicosController extends Controller
                             ->where('nome', 'like', "%". $pesquisa."%")
                             ->orwhere('preco', 'like', "%". $pesquisa."%")
                             ->orwhere('descricao', 'like', "%". $pesquisa."%")
-                            ->paginate(10)->withQueryString();
+                            ->paginate(10);
         }else{
             $servico = Servicos::orderBy('created_at','asc')
                             ->paginate(10);
@@ -47,7 +47,7 @@ class ServicosController extends Controller
     }
     public function deletar($id){
         $servico = Servicos::find($id);
-        if(!empty($servicos->id)){
+        if(!empty($servico->id)){
             $servico->delete();
             $message = 'Deletado com sucesso';
         }else{

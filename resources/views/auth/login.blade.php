@@ -11,6 +11,17 @@
     <title>Login</title>
 </head>
 <body>
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+            @foreach($errors->all() as $error)
+            {{ $error }}<br/>
+            @endforeach
+        </div>
+    @endif
+
     <div class="body-card">
         <div class="login-card">
             <img src="/img/logo.png" alt="logo" class="logo">
