@@ -33,6 +33,26 @@ class ClientesController extends Controller
     }
     public function salvar(Request $request){
 
+        //------- UPLOAD DE IMAGENS ------
+        
+        // Validar a requisição
+        $request->validate([
+            'foto_temp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $foto = $request->file('foto_temp');
+        if(!empty($request->foto_temp)){
+            unset($request['foto_temp']);
+        }
+        //RESGATA EXTENSÃO DO ARQUIVO
+        $extension = $foto->extension();
+        //NOME UNICO DO ARQUIVO + EXTENSÃO
+        $nome =  uniqid('documento_').'.'.$extension;
+        $path = $foto->storeAs('foto', $nome);
+        //INSERE O VALOR DA FOTO NA REQUEST
+        $request->merge(['foto' => $path]);
+
+        //------- FIM UPLOAD DE IMAGENS ------ 
+       
         if(empty($request->id)){
             $cliente = Clientes::create($request->all());
             $message = "Salvo com sucesso !";

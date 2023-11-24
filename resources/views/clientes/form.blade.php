@@ -31,7 +31,7 @@
                   <div class="card-body box-profile">
                      @if(!empty($cliente->foto))
                      <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle" src="{{ $cliente->foto }}" alt="" style="max-height: 100px;">
+                        <img class="profile-user-img img-fluid img-circle" src="{{asset('storage/app' . $cliente->foto)}}" alt="Foto do cliente" style="max-height: 100px;">
                         <h5 class="text-secondary'">{{$cliente->nome}}</h5>
                      </div>
                      @endif
@@ -42,7 +42,7 @@
          <div class="card">
             @isset($cliente)
             <div class="card-header">
-               <a href="/cliente/novo" class="btn harpia-harpia-color harpia-text-light">
+               <a href="/cliente/novo" class="btn btn-primary">
                   Novo Cliente
                   <i class="fas fa-plus"></i>
                </a>
@@ -62,25 +62,25 @@
                   <div class="row">
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="nome">Nome:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)) {{$cliente->nome}} @else{{old('nome')}} @endif" required>
+                        <input type="text" name="nome" id="nome" class="form-control" value="@if(isset($cliente)){{$cliente->nome}}@else{{old('nome')}}@endif" required>
                      </div>
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="cpf">CPF:</label>
-                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}} @else{{old('cpf')}} @endif" required>
+                        <input type="text" name="cpf" id="cpf" class="form-control" value="@if(isset($cliente)) {{$cliente->cpf}}@else{{old('cpf')}}@endif" required>
                      </div>                     
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="telefone">Telefone:</label>
-                        <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)) {{$cliente->telefone}} @else{{old('telefone')}} @endif" required>
+                        <input type="text" name="telefone" id="telefone" class="form-control" value="@if(isset($cliente)){{$cliente->telefone}} @else{{old('telefone')}}@endif" required>
                      </div>
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="email">E-mail:</label>
-                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)) {{$cliente->email}} @else{{old('email')}} @endif" required>
+                        <input type="email" name="email" id="email" class="form-control" value="@if(isset($cliente)){{$cliente->email}}@else{{old('email')}}@endif" required>
                      </div>                 
                   </div>
                   <div class="row">
                      <div class="col-12">
                         <label class="form-label" for="observacao">Observações:</label>
-                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($cliente)){{$cliente->observacao}}@else{{ old('observacao') }}@endif</textarea>
+                        <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($cliente)){{$cliente->observacao}}@else{{old('observacao')}}@endif</textarea>
                      </div>
                   </div>
                   <hr>
