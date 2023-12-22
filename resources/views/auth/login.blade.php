@@ -23,7 +23,7 @@
     @endif
 
     <div class="body-card">
-        <div class="login-card">
+        <div class="login-card card-body">
             <img src="/img/logo.png" alt="logo" class="logo">
             <form method="POST" action="{{ route('logar') }}">
                 @csrf
@@ -31,7 +31,7 @@
                     <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password"  name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <button type="submit" class="btn btn-login">Entrar</button>
                 <a href="#" class="forgot-password">Esqueci minha senha</a>

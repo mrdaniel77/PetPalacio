@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clientes;
+use PDF;
 
 class ClientesController extends Controller
 {
@@ -31,6 +32,24 @@ class ClientesController extends Controller
 
         return view('clientes.form', compact('cliente'));
     }
+
+    public function exportarPDF(){
+        // Dados que serão passados para a view PDF
+        $data = [
+            ['nome' => 'João'],
+            ['nome' => 'Maria'],
+            ['nome' => 'José'],
+            ['nome' => 'Ana'],
+        ];
+
+        // Carrega a view 'pdf.exemplo' e passa os dados para a mesma
+        $pdf = PDF::loadView('clientes.exportar', $data);
+
+
+        // Faz o download do PDF com o nome 'exportar.pdf'
+        return $pdf->download('exportar.pdf');
+    }
+
     public function salvar(Request $request){
 
         //------- UPLOAD DE IMAGENS ------
@@ -39,18 +58,18 @@ class ClientesController extends Controller
         $request->validate([
             'foto_temp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $foto = $request->file('foto_temp');
         if(!empty($request->foto_temp)){
+            $foto = $request->file('foto_temp');
             unset($request['foto_temp']);
+            
+            //RESGATA EXTENSÃO DO ARQUIVO
+            $extension = $foto->extension();
+            //NOME UNICO DO ARQUIVO + EXTENSÃO
+            $nome =  uniqid('documento_').'.'.$extension;
+            $path = $foto->storeAs('foto', $nome);
+            //INSERE O VALOR DA FOTO NA REQUEST
+            $request->merge(['foto' => $path]);
         }
-        //RESGATA EXTENSÃO DO ARQUIVO
-        $extension = $foto->extension();
-        //NOME UNICO DO ARQUIVO + EXTENSÃO
-        $nome =  uniqid('documento_').'.'.$extension;
-        $path = $foto->storeAs('foto', $nome);
-        //INSERE O VALOR DA FOTO NA REQUEST
-        $request->merge(['foto' => $path]);
-
         //------- FIM UPLOAD DE IMAGENS ------ 
        
         if(empty($request->id)){
