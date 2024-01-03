@@ -22,7 +22,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }else{
-            return back()->with('erro', 'login errado');
+            // Autenticação falhou
+            return redirect()->back()->withErrors(['login' => 'Credenciais inválidas.']);
         }
     }
 

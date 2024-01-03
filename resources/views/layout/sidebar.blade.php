@@ -35,7 +35,7 @@
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Clientes
                 <i class="fas fa-angle-left right"></i>
@@ -83,7 +83,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-shopping-cart"></i>
+              <i class="nav-icon fas fa-wrench"></i>
               <p>
                 Serviços
                 <i class="fas fa-angle-left right"></i>
@@ -107,7 +107,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Colaboradores
                 <i class="fas fa-angle-left right"></i>

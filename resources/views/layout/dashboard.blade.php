@@ -34,7 +34,7 @@
                   <span class="info-box-icon bg-yellow elevation-1"><i class="fas fa-users"></i></span>
                   <div class="info-box-content">                                 
                     <div class="inner" >
-                      <h4 class="info-box-text" style="color: #000">Clientes</h4>
+                      <h5 class="info-box-text" style="color: #000">Clientes</h5>
                     </div>
                   </div>
                 </div>
@@ -46,10 +46,10 @@
             <div class="card">
               <div class="card-body">
                 <div class="info-box mb-3">
-                  <span class="info-box-icon bg-red elevation-1"><i class="fas fa-users"></i></span>
+                  <span class="info-box-icon bg-red elevation-1"><i class="fas fa-dog"></i></span>
                   <div class="info-box-content">                                 
                     <div class="inner" >
-                      <h4 class="info-box-text" style="color: #000">Pets</h4>
+                      <h5 class="info-box-text" style="color: #000">Pets</h5>
                     </div>
                   </div>
                 </div>
@@ -61,10 +61,10 @@
             <div class="card">
               <div class="card-body">
                 <div class="info-box mb-3">
-                  <span class="info-box-icon bg-black elevation-1"><i class="fas fa-users"></i></span>
+                  <span class="info-box-icon bg-black elevation-1"><i class="fas fa-wrench"></i></span>
                   <div class="info-box-content">                                 
                     <div class="inner" >
-                      <h4 class="info-box-text" style="color: #000">Sserviços</h4>
+                      <h5 class="info-box-text" style="color: #000">Serviços</h5>
                     </div>
                   </div>
                 </div>
@@ -76,10 +76,10 @@
             <div class="card">
               <div class="card-body">
                 <div class="info-box mb-3">
-                  <span class="info-box-icon bg-gray elevation-1"><i class="fas fa-users"></i></span>
+                  <span class="info-box-icon bg-gray elevation-1"><i class="fas fa-user-friends"></i></span>
                   <div class="info-box-content">                                 
                     <div class="inner" >
-                      <h4 class="info-box-text" style="color: #000">Colaboradores</h4>
+                      <h5 class="info-box-text" style="color: #000">Colaboradores</h5>
                     </div>
                   </div>
                 </div>

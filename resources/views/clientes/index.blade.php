@@ -84,7 +84,7 @@
                                           <p id="email"></p>
                                        </div>
                                        <div class="modal-footer">
-                                          <a href="/cliente/exportar-pdf/">
+                                          <a href="/cliente/exportar-pdf/{{ $item->id }}">
                                              <button type="button" class="btn btn-danger" data-dismiss="modal">PDF</button>
                                           </a>
                                           <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>

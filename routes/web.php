@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cliente/editar/{id}', [ClientesController::class, 'editar'])->name('cliente.editar');
     Route::post('/cliente/salvar', [ClientesController::class, 'salvar'])->name('cliente.salvar');
     Route::get('/cliente/deletar/{id}', [ClientesController::class, 'deletar'])->name('cliente.deletar');
-    Route::get('/cliente/exportar-pdf', [ClientesController::class, 'exportarPDF'])->name('cliente.exportarPDF');
+    Route::get('/cliente/exportar-pdf/{id}', [ClientesController::class, 'exportarPDF'])->name('cliente.exportarPDF');
 
 
     Route::get('/pet', [PetsController::class, 'index'])->name('Pet');

@@ -67,5 +67,23 @@ span{
     color: rgb(197, 213, 233);
 }
 
+.icon-input {
+    position: relative;
+}
+
+.icon-input i {
+    position: absolute;
+    left: 10px; /* Ajuste conforme necessário para posicionar o ícone dentro do campo */
+    top: 50%; /* Ajuste conforme necessário para posicionar o ícone verticalmente no centro */
+    transform: translateY(-50%);
+    color: #aaa; /* Ajuste conforme necessário para a cor do ícone */
+    z-index: 2; /* Certifique-se de que o ícone está acima do campo de entrada */
+}
+
+.icon-input input {
+    padding-left: 30px; /* Ajuste conforme necessário para garantir espaço suficiente para o ícone */
+}
+
+
 /* DASHBOARD */
 

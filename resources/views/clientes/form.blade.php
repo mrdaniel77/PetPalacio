@@ -40,13 +40,11 @@
                   <!-- Exibição da imagem do cliente -->
                   <div class="col-12">
                      <div class="card card-primary card-outline">
-                        <div class="card-body box-profile">
-                           @if(!empty($cliente->foto))
-                              <div class="text-center">
-                                 <img class="profile-user-img img-fluid img-circle" id="preview" src="{{ asset('storage/' . $cliente->foto) }}" alt="Foto do cliente" style="max-width: 200px; display: {{ !empty($cliente->foto) ? 'block' : 'none' }};">                                
-                                 <h5 class="text-secondary">{{ $cliente->nome }}</h5>
-                              </div>
-                           @endif
+                        <div class="card-body box-profile">                           
+                           <div class="text-center">
+                              <img class="profile-user-img img-fluid img-circle" id="preview" src="{{ asset('storage/' . $cliente->foto) }}" alt="Foto do cliente" style="max-width: 200px; display: {{ !empty($cliente->foto) ? 'block' : 'none' }};">                                
+                              <h5 class="text-secondary">{{ $cliente->nome }}</h5>
+                           </div>                           
                         </div>
                      </div>
                   </div>
