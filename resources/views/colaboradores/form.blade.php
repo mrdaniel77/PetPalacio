@@ -75,8 +75,8 @@
                      </div>
                   </div>
                   <hr>
-                  <div class="row">
-                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="start">
+                  <div class="row justify-content-between">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" >
                         <a href="/colaborador" class="btn btn-danger w-100 hover-shadow">
                            @if(isset($colaborador))
                            Sair
@@ -86,7 +86,7 @@
                            @endif
                         </a>
                      </div>                 
-                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" align="right">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" >
                         <button type="submit" class="btn btn-success w-100 salvar">
                            Salvar 
                            <i class="fas fa-save"></i>

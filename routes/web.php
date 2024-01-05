@@ -19,10 +19,12 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [DashboardController::class, 'index']);
+
+/* ROTA PARA UMA DASHBOARD
+Route::get('/', [DashboardController::class, 'index']); */
 
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/logar', [LoginController::class, 'logar'])->name('logar');
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -41,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cliente/editar/{id}', [ClientesController::class, 'editar'])->name('cliente.editar');
     Route::post('/cliente/salvar', [ClientesController::class, 'salvar'])->name('cliente.salvar');
     Route::get('/cliente/deletar/{id}', [ClientesController::class, 'deletar'])->name('cliente.deletar');
+    Route::get('/cliente/exportar-pdf/{id}', [ClientesController::class, 'exportarPDF'])->name('cliente.exportarPDF');
+
 
     Route::get('/pet', [PetsController::class, 'index'])->name('Pet');
     Route::get('/pet/novo', [PetsController::class, 'novo'])->name('Pet.novo');
