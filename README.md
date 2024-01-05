@@ -4,12 +4,12 @@
 A aplicação conta com cadastro de colaboradores, clientes, serviços e pets devidamente relacionado ao seu responsável.
 Uploads de fotos, máscaras para CPF, números de telefone, pesos e preços.
 
-<p align="center"><img src="![cliente](https://github.com/mrdaniel77/PetPalacio/assets/74216719/9b039563-3b44-47da-a97e-1c57ef1c8e39)" width="400" ></p>
-<p align="center"><img src="![dashboard](https://github.com/mrdaniel77/PetPalacio/assets/74216719/53c7f249-eb44-440d-bc66-b74aeac2ea76)" width="400" ></p>
-<p align="center"><img src="![listagem](https://github.com/mrdaniel77/PetPalacio/assets/74216719/9e0dcbd9-3dec-43d2-86b0-2a62e16e9e40)" width="400" ></p>
-<p align="center"><img src="![login](https://github.com/mrdaniel77/PetPalacio/assets/74216719/49c534e7-6ed0-436a-84b4-0323a476e635)" width="400" ></p>
-<p align="center"><img src="![login2](https://github.com/mrdaniel77/PetPalacio/assets/74216719/9536ddeb-b1cd-479d-ad10-141a440056ce)" width="400" ></p>
 
 
 
 
+![cliente](https://github.com/mrdaniel77/PetPalacio/assets/74216719/15df0351-1f98-4216-8527-c910ec5c3472)
+![login2](https://github.com/mrdaniel77/PetPalacio/assets/74216719/62b06873-8809-4f0f-b784-31f079e3de38)
+![login](https://github.com/mrdaniel77/PetPalacio/assets/74216719/c1123cdb-82c4-470e-b9bb-604953e799b4)
+![listagem](https://github.com/mrdaniel77/PetPalacio/assets/74216719/ed3ededf-acf8-4d9b-bf0c-99af123ef1a2)
+![dashboard](https://github.com/mrdaniel77/PetPalacio/assets/74216719/5e83d6b9-864c-42dd-845c-2f48d78c8434)
