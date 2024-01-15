@@ -1,3 +1,4 @@
+
 @include('layout.header')
 @include('layout.navbar')
 @include('layout.sidebar')
@@ -20,7 +21,13 @@
          </div><!-- /.row -->
       </div><!-- /.container-fluid -->
    </div>
-    
+   @if($errors->any())
+      <div class="alert alert-danger" role="alert">                    
+         @foreach($errors->all() as $error)
+            {{ $error }}<br/>
+         @endforeach
+      </div>
+   @endif
     <!-- /.content-header -->
 
    <div class="content">
@@ -93,6 +100,7 @@
                         <textarea class="form-control" name="observacao" id="observacao" rows="3">@if(isset($cliente)){{$cliente->observacao}}@else{{old('observacao')}}@endif</textarea>
                      </div>
                   </div>
+                  <a href="" class="btn btn-app">play</a>
                   <hr>
                   <div class="row justify-content-between">
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
@@ -106,7 +114,7 @@
                         </a>
                      </div>                     
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                        <button type="submit" class="btn btn-success w-100 salvar">
+                        <button type="submit" class="btn btn-success w-100 salvar disabled">
                            Salvar 
                            <i class="fas fa-save"></i>
                         </button>

@@ -64,7 +64,7 @@
                   <span class="info-box-icon bg-black elevation-1"><i class="fas fa-users"></i></span>
                   <div class="info-box-content">                                 
                     <div class="inner" >
-                      <h4 class="info-box-text" style="color: #000">Sserviços</h4>
+                      <h4 class="info-box-text" style="color: #000">Serviços</h4>
                     </div>
                   </div>
                 </div>
