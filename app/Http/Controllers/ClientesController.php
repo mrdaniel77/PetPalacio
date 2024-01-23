@@ -75,8 +75,8 @@ class ClientesController extends Controller
             $message = "Salvo com sucesso!";
         } else {
             $cliente = Clientes::find($request->id);
-    
             $cliente->update($request->all());
+            
             $message = "Alterado com sucesso!";
            
         }

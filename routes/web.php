@@ -8,6 +8,7 @@ use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AgendamentosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cliente/deletar/{id}', [ClientesController::class, 'deletar'])->name('cliente.deletar');
     Route::get('/cliente/exportar-pdf/{id}', [ClientesController::class, 'exportarPDF'])->name('cliente.exportarPDF');
 
-
     Route::get('/pet', [PetsController::class, 'index'])->name('Pet');
     Route::get('/pet/novo', [PetsController::class, 'novo'])->name('Pet.novo');
     Route::get('/pet/editar/{id}', [PetsController::class, 'editar'])->name('Pet.editar');
@@ -58,10 +58,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/servico/salvar', [ServicosController::class, 'salvar'])->name('servico.salvar');
     Route::get('/servico/deletar/{id}', [ServicosController::class, 'deletar'])->name('servico.deletar');
 
-    Route::get('/usuario/novo', [UsuarioController::class, 'novo'])->name('usuario.novo');
     Route::get('/usuario', [UsuarioController::class, 'index'])->name('usuario');
+    Route::get('/usuario/novo', [UsuarioController::class, 'novo'])->name('usuario.novo');
     Route::get('/usuario/editar/{id}', [UsuarioController::class, 'editar'])->name('usuario.editar');
     Route::post('/usuario/salvar', [UsuarioController::class, 'salvar'])->name('usuario.salvar');
     Route::get('/usuario/deletar/{id}', [UsuarioController::class, 'deletar'])->name('usuario.deletar');
     
+    Route::get('/agendamento', [AgendamentosController::class, 'index'])->name('agendamento');
+    Route::get('/agendamento/novo', [AgendamentosController::class, 'create'])->name('agendamento.novo');
+    Route::get('/agendamento/editar/{id}', [AgendamentosController::class, 'edit'])->name('agendamento.editar');
+    Route::post('/agendamento/salvar', [AgendamentosController::class, 'store'])->name('agendamento.salvar');
+    Route::get('/agendamento/deletar/{id}', [AgendamentosController::class, 'destroy'])->name('agendamento.deletar');
 }); 
