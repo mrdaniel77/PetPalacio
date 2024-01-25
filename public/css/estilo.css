@@ -93,3 +93,12 @@ span{
 margin-right: 1%;
 
 }
+
+/* AJUSTE DA COLUNA OBSERVAÇÕES PARA QUE NÃO FIQUE MUITO GRANDE
+QUEBRA DE LINHA */
+.truncate-text-obs {
+    max-width: 0 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+ }

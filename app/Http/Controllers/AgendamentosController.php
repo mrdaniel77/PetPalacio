@@ -10,6 +10,15 @@ use App\Models\Servicos;
 
 class AgendamentosController extends Controller
 {
+    public $horarios = ['08:00 ás 09:00', 
+    '09:00 ás 10:00', 
+    '10:00 ás 11:00', 
+    '11:00 ás 12:00', 
+    '14:00 ás 15:00', 
+    '15:00 ás 16:00', 
+    '17:00 ás 18:00',
+];
+
     public function index(){
         $agendamento = Agendamentos::get();
         return view('agendamento.index', compact('agendamento'));
@@ -17,11 +26,12 @@ class AgendamentosController extends Controller
 
     public function create(){
         
-        $agendamento = Agendamentos::with('cliente','pet', 'servico')->get();
+        $horarios = $this->horarios;
+        $agendamento = Agendamentos::with('cliente','pet',)->get();
         $clientes = Clientes::get();
         $pets = Pets::get();
 
-        return view('agendamento.form', compact('agendamento', 'clientes', 'pets'));
+        return view('agendamento.form', compact('agendamento', 'clientes', 'pets','horarios'));
     }
 
     public function edit($id){

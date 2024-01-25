@@ -46,8 +46,8 @@
                <form action="/agendamento/salvar" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="id" value="@if(isset($agendamento->id)){{$agendamento->id}}@else{{old('id')}}@endif">                  
-                  <div class="row">
-                     <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <div class="row justify-content-center md-2">
+                     <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label class="form-label" for="cliente_id">Nome do cliente :</label>
                         <select name="cliente_id" class="form-control" required>
                            <option value="">Selecione</option>
@@ -56,7 +56,7 @@
                            @endforeach
                         </select>
                      </div>
-                     <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                     <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label class="form-label" for="pet_id">Nome do pet :</label>
                         <select name="pet_id" class="form-control" required>
                            <option value="">Selecione</option>
@@ -65,7 +65,7 @@
                            @endforeach
                         </select>
                      </div>
-                     <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                     <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label for="servico_id">Serviço</label>
                         <select name="servico_id" class="form-control" required>
                            <option value="">Selecione</option>
@@ -75,18 +75,25 @@
                         </select>
                      </div>                         
                   </div>
-                  <div class="row">
-                     <div class="col-6">
-                        <label for="data_agendamento" class="form-label">Data do agendamento</label>
+               
+                  <br>
+                  <div class="row justify-content-center mb-2">
+                     <div class="col-2">
+                        <label for="data_agendamento" class="form-label">Data </label>
                         <input type="date" name="data_agendamento" class="form-control">
+                     </div>                  
+                     <div class="col-2">
+                        <label for="horario_agendamento" class="form-label">Horário</label>
+                        <select name="horario_agendamento" class="form-control">
+                           <option value="">Selecione</option>
+                           @foreach ($horarios as $horario)
+                              <option value="{{$horario}}" @if($horario == '08:00 ás 09:00') disabled style="color: red;" @endif>{{$horario}}</option>
+                           @endforeach
+                        </select>
                      </div>
+                  </div>                  
+                  <div class="row justify-content-center">
                      <div class="col-6">
-                        <label for="horario_agendamento" class="form-label">Horário do agendamento</label>
-                        <input type="time" name="horario_agendamento" class="form-control" >
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-12">
                         <label class="form-label" for="observacao_agendamento">Observações:</label>
                         <textarea class="form-control" name="observacao_agendamento" rows="3">@if(isset($agendamento->observacao_agendamento)){{$agendamento->observacao_agendamento}}@else{{old('observacao_agendamento')}}@endif</textarea>
                      </div>

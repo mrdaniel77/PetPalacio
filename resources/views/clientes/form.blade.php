@@ -59,12 +59,12 @@
                   <div class="col-12">
                      <div class="card card-primary card-outline">
                         <div class="card-body box-profile">                           
-                              <div class="text-center">
-                                 <img class="profile-user-img img-fluid img-circle" id="preview" src="{{ isset($cliente) ? asset('storage/' . $cliente->foto) : '' }}" alt="Foto do cliente" style="max-width: 200px; display: {{ !empty($cliente->foto) ? 'block' : 'none' }};">                                
-                              </div>                           
+                           <div class="text-center">
+                              <img class="profile-user-img img-fluid img-circle" id="preview" src="{{ isset($cliente) ? asset('storage/' . $cliente->foto) : '' }}" alt="Foto do cliente" style="max-width: 200px; display: {{ !empty($cliente->foto) ? 'block' : 'none' }};">                                
+                           </div>                           
                         </div>
                      </div>
-                  </div>          
+                  </div>
                @endif
                <form action="/cliente/salvar" method="post" enctype="multipart/form-data">
                   @csrf

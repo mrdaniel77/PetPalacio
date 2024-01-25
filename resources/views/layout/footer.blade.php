@@ -26,6 +26,8 @@
 <!-- ChartJS -->
 <script src="/plugins/chart.js/Chart.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/js/pages/dashboard2.js"></script>
 <script src="/js/javascript.js"></script>

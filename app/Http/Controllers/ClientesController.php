@@ -42,8 +42,8 @@ class ClientesController extends Controller
         // Carrega a view 'clientes.exportar' e passa os dados para a mesma
         $pdf = PDF::loadView('clientes.exportar', compact('data'));
 
-        // Faz o download do PDF com o nome 'exportar.pdf'
-        return $pdf->download('exportar.pdf');
+        // Faz o download do PDF com o nome 'exportar_cliente.pdf'
+        return $pdf->download('exportar_cliente.pdf');
     }
 
     public function salvar(Request $request)

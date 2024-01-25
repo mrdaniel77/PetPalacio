@@ -7,12 +7,12 @@
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-               <h1 class="m-0">Clientes</h1>
+               <h1 class="m-0">Agendamento</h1>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item "><a href="/" class="harpia-text-color">Dashboard</a></li>
-                  <li class="breadcrumb-item active">Clientes</li>
+                  <li class="breadcrumb-item active">Agendamento</li>
                </ol>
             </div>           
          </div>
@@ -37,8 +37,8 @@
                <div class="row align-items-center">
                   <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                      <div class="row">                        
-                        <a href="/cliente/novo" class="m-1 btn btn-success">
-                            Novo Cliente 
+                        <a href="/agendamento/novo" class="m-1 btn btn-success">
+                            Novo Agendamento 
                             <i class="fas fa-plus"></i>
                         </a>                                                
                      </div>
@@ -61,7 +61,7 @@
                <table class="table table-hover text-nowrap table-bordered ">
                   <thead>
                      <tr>
-                        <th class="col-4">Dia do agendamento</th>
+                        <th class="col-2">Dia do agendamento</th>
                         <th class="col-2">Horário</th>
                         <th class="col-3">Cliente</th>
                         <th class="col-2">Nome do pet</th>
@@ -71,14 +71,11 @@
                   @foreach ($agendamento as $item)                      
                      <tbody>                     
                            <tr>
-                              <td class="col-4"> {{$item->data_agendamento}} </td>
+                              <td class="col-2"> {{$item->data_agendamento}} </td>
                               <td class="col-2"> {{$item->horario_agendamento}} </td>
                               <td class="col-3"> {{$item->cliente->nome}} </td>
                               <td class="col-2"> {{$item->pet->nome}} </td>                                                      
-                              <td class="col-1">                                 
-                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarCliente('{{ $item->data_agendamento }}', '{{ $item->horario_agendamento }}', '{{ $item->cliente->nome }}', '{{ $item->pet->nome }}')">                           
-                                    <i class="fas fa-eye"></i>
-                                 </a>                                  
+                              <td class="col-1"> 
                                  <a href="/agendamento/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
@@ -95,20 +92,4 @@
       </div>
    </div>
 </div>
-@include('clientes.visualizar')
 @include('layout.footer')
-
-<script>
-   function visualizarCliente( data, hora, cliente, pet ) {
-      // Atualiza o conteúdo do modal com os detalhes fornecidos
-      $('#Data').text(nome);
-      $('#cpf').text('CPF : ' + cpf);
-      $('#telefone').text('Telefone : ' + telefone);
-      $('#email').text('E-mail : ' + email);
-      // Abre o modal
-      $('#MyModal').modal('show');
-   }
-   function closeModal(){
-      $('#MyModal').modal('hide');
-   }
-</script>

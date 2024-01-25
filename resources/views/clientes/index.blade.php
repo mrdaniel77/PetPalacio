@@ -76,13 +76,13 @@
                               <td class="col-3"> {{$item->telefone}} </td>
                               <td class="col-2"> {{$item->email}} </td>                                                      
                               <td class="col-1">                                 
-                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarCliente('{{ $item->nome }}', '{{ $item->cpf }}', '{{ $item->telefone }}', '{{ $item->email }}')">                           
+                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarCliente('{{ $item->nome }}', '{{ $item->cpf }}', '{{ $item->telefone }}', '{{ $item->email }}', '{{ $item->foto }}')">                           
                                     <i class="fas fa-eye"></i>
                                  </a>                                  
                                  <a href="/cliente/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
-                                 <a href="/cliente/deletar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
+                                 <a href="#" class="btn btn-xs mx-1 pt-1 btn-outline-danger" onclick="deletarCliente('/cliente/deletar/{{ $item->id }}')" title="Deletar">                              
                                     <i class="fas fa-trash"></i>
                                  </a>                                             
                               </td>
@@ -99,16 +99,40 @@
 @include('layout.footer')
 
 <script>
-   function visualizarCliente( nome, cpf, telefone, email ) {
+   function visualizarCliente( nome, cpf, telefone, email, foto ) {
       // Atualiza o conteúdo do modal com os detalhes fornecidos
       $('#nome').text(nome);
       $('#cpf').text('CPF : ' + cpf);
       $('#telefone').text('Telefone : ' + telefone);
       $('#email').text('E-mail : ' + email);
+      $('#foto').attr('src', 'storage/' + foto);
+      console.log(foto);
       // Abre o modal
       $('#MyModal').modal('show');
    }
    function closeModal(){
       $('#MyModal').modal('hide');
    }
+
+   function deletarCliente(url) {
+    Swal.fire({
+      title: 'Tem Certeza?',
+      text: "Esta ação não pode ser desfeita!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, Deletar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url
+          // Swal.fire(
+          //     'Deletado!',
+          //     'O registro foi deletado!',
+          //     'success'
+          // )
+      }
+    })
+  }
+   
 </script>
