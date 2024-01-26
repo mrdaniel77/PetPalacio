@@ -20,10 +20,7 @@
                          <img src="#" alt="user-avatar" class="img-circle img-fluid">
                       </div>
                    </div><br>                                                   
-                   <div class="row justify-content-between">                                                   
-                      <a href="/cliente/exportar-pdf/{{ $item->id }}">
-                         <button type="button" class="btn btn-primary" data-dismiss="modal">Exportar</button>
-                      </a>
+                   <div class="row justify-content-between">                      
                       <button type="button" id="close" onclick="closeModal()" class="btn btn-danger" data-dismiss="modal">Fechar</button>                                                      
                    </div>
                 </div>                                            

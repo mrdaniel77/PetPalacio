@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Agendamentos;
 use App\Models\Pets;
 use App\Models\Clientes;
@@ -75,4 +76,11 @@ class AgendamentosController extends Controller
             return redirect()->back()->with('danger', $message);
         }
     }
+
+    public function agendamento_cliente($cliente_id)
+{
+    $pets = Pets::where('cliente_id', $cliente_id)->get();
+    
+    return response()->json($pets);
+}
 }

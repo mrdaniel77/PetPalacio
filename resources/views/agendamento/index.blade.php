@@ -71,7 +71,7 @@
                   @foreach ($agendamento as $item)                      
                      <tbody>                     
                            <tr>
-                              <td class="col-2"> {{$item->data_agendamento}} </td>
+                              <td class="col-2">{{date('d/m/Y', strtotime($item->data_agendamento))}} </td>
                               <td class="col-2"> {{$item->horario_agendamento}} </td>
                               <td class="col-3"> {{$item->cliente->nome}} </td>
                               <td class="col-2"> {{$item->pet->nome}} </td>                                                      

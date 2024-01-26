@@ -49,7 +49,7 @@
                   <div class="row justify-content-center md-2">
                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
                         <label class="form-label" for="cliente_id">Nome do cliente :</label>
-                        <select name="cliente_id" class="form-control" required>
+                        <select name="cliente_id" class="form-control" id="agendCliente" required>
                            <option value="">Selecione</option>
                            @foreach ($clientes as $item)
                                <option value="{{$item->id}}">{{$item->nome}}</option>
@@ -57,8 +57,8 @@
                         </select>
                      </div>
                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <label class="form-label" for="pet_id">Nome do pet :</label>
-                        <select name="pet_id" class="form-control" required>
+                        <label class="form-label" for="pet_id">Pet :</label>
+                        <select name="pet_id" class="form-control" id="pet" required>
                            <option value="">Selecione</option>
                            @foreach ($pets as $item)
                                <option value="{{$item->id}}">{{$item->nome}}</option>
@@ -87,7 +87,7 @@
                         <select name="horario_agendamento" class="form-control">
                            <option value="">Selecione</option>
                            @foreach ($horarios as $horario)
-                              <option value="{{$horario}}" @if($horario == '08:00 ás 09:00') disabled style="color: red;" @endif>{{$horario}}</option>
+                              <option value="{{$horario}}" @if($horario == '10:00 ás 11:00') disabled style="color: red;" @endif>{{$horario}}</option>
                            @endforeach
                         </select>
                      </div>
@@ -143,4 +143,18 @@
            preview.style.display = 'none';
        }
    }
+
+   $('#agendCliente').change(function(){
+    var clienteId = $(this).val();
+    $.ajax({
+        url: '/agendamento/' + clienteId,
+        type: 'GET',
+        success: function(response){
+            $('#pet').empty();
+            $.each(response, function(index, pet){
+                $('#pet').append('<option value="'+pet.id+'">'+pet.nome+'</option>');
+            });
+        }
+    });
+});
 </script>

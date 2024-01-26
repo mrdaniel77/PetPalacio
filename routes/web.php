@@ -69,4 +69,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/agendamento/editar/{id}', [AgendamentosController::class, 'edit'])->name('agendamento.editar');
     Route::post('/agendamento/salvar', [AgendamentosController::class, 'store'])->name('agendamento.salvar');
     Route::get('/agendamento/deletar/{id}', [AgendamentosController::class, 'destroy'])->name('agendamento.deletar');
+    Route::get('/agendamento/{cliente_id}', [AgendamentosController::class, 'agendamento_cliente'])->name('agendamento.agendamento_cliente');
 }); 
