@@ -139,7 +139,7 @@
 
                     <div class="progress-group">
                       Banho e tosa
-                      <span class="float-right"><b>160</b>/200</span>
+                      <span class="float-right"><b>170</b>/200</span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-primary" style="width: 80%"></div>
                       </div>
@@ -148,9 +148,9 @@
 
                     <div class="progress-group">
                       Apenas banho
-                      <span class="float-right"><b>170</b>/200</span>
+                      <span class="float-right"><b>50</b>/200</span>
                       <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 75%"></div>
+                        <div class="progress-bar bg-danger" style="width: 25%"></div>
                       </div>
                     </div>                    
                     <!-- /.progress-group -->

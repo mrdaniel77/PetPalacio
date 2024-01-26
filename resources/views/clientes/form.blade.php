@@ -69,13 +69,14 @@
                <form action="/cliente/salvar" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="id" value="@if(isset($cliente)){{$cliente->id}}@else{{old('id')}}@endif">
-                  <div class="row">
-                     <div class="col-2">
+                  <div class="row justify-content-center">
+                     <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1">
                         <!-- Input para escolher a imagem -->
-                        <label for="foto_temp">Escolha uma imagem:</label>
-                        <input type="file" name="foto_temp" id="foto_temp" onchange="exibirPreview(this);">
+                        <label class="form-label ">Foto:</label>
+                        <label for="foto_temp" class="form-label arquivo">Selecione <i class="fas fa-paperclip"></i></label>
+                        <input type="file" name="foto_temp" id="foto_temp" id="arquivo" onchange="exibirPreview(this);">
                      </div>                     
-                  </div>
+                  </div><br>                 
                   <div class="row">
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <label class="form-label" for="nome">Nome:</label>
@@ -102,7 +103,7 @@
                   </div>                  
                   <hr>
                   <div class="row justify-content-between">
-                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                     <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 mb-2">
                         <a href="/cliente" class="btn btn-danger w-100 hover-shadow">
                            @if(isset($cliente))
                            Sair
@@ -111,7 +112,7 @@
                            <i class="fas fa-times"></i>
                            @endif
                         </a>
-                     </div>                     
+                     </div>               
                      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <button type="submit" class="btn btn-success w-100 salvar">
                            Salvar 
