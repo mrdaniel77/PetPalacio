@@ -49,44 +49,19 @@
                <table class="table table-hover text-nowrap table-bordered ">
                   <thead align="center">
                      <tr>
-                        <th class="col-4">Nome</th>
-                        <th class="col-2">Preço</th>
-                        <th class="col-4">Descrição</th>
+                        <th class="col-4">Tipo de serviço</th>
+                        <th class="col-1">Preço</th>
+                        <th class="col-5">Descrição</th>
                         <th class="col-2">Ações</th>
                      </tr>
                   </thead>
                   @foreach ($servico as $item)                      
-                     <tbody>                     
+                     <tbody align="center">                     
                            <tr>
                               <td class="col-4"> {{$item->nome}} </td>
-                              <td class="col-2"> {{$item->preco}} </td>
-                              <td class="col-4"> {{$item->descricao}} </td>
-                              <td class="col-2">                                 
-                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarServico('{{ $item->nome }}', '{{ $item->preco }}', '{{ $item->descricao }}')">                           
-                                    <i class="fas fa-eye"></i>
-                                 </a>
-                                 {{-- MODAL --}}
-                                 <div class="modal fade" id="MyModal"  tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                       <div class="modal-header">
-                                          <h5 class="modal-title" id="MyModalLabelName"></h5>
-                                          
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                          </button>
-                                       </div>
-                                       <div class="modal-body">   
-                                          <p id="preco" ></p><br>
-                                          <p id="descricao" ></p><br>
-                                       </div>
-                                       <div class="modal-footer">
-                                          <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                       </div>
-                                    </div>
-                                    </div>
-                                 </div>
-                                 {{-- END MODAL --}}    
+                              <td class="col-1"> {{$item->preco}} </td>
+                              <td class="col-5 truncate-text-obs"> {{$item->descricao}} </td>
+                              <td class="col-2">
                                  <a href="/servico/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
@@ -104,17 +79,3 @@
    </div>
 </div>
 @include('layout.footer')
-
-<script>
-   function visualizarServico( nome, preco, descricao ) {
-      // Atualiza o conteúdo do modal com os detalhes fornecidos
-      $('#MyModalLabelName').text(nome);
-      $('#preco').text('Preço : ' + preco);
-      $('#descricao').text('Descrição : ' + descricao);
-      // Abre o modal
-      $('#MyModal').modal('show');
-   }
-   function closeModal(){
-      $('#MyModal').modal('hide');
-   }
-</script>

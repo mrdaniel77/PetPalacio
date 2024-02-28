@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 use App\Models\Clientes;
 use PDF;
@@ -41,15 +42,15 @@ class ClientesController extends Controller
         // Carrega a view 'clientes.exportar' e passa os dados para a mesma
         $pdf = PDF::loadView('clientes.exportar', compact('data'));
 
-        // Faz o download do PDF com o nome 'exportar.pdf'
-        return $pdf->download('exportar.pdf');
+        // Faz o download do PDF com o nome 'exportar_cliente.pdf'
+        return $pdf->download('exportar_cliente.pdf');
     }
 
     public function salvar(Request $request)
 {
     // Validar a requisição (não está funcionando, verificar)
     $request->validate([
-        'foto_temp' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'foto_temp' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
     if (!empty($request->foto_temp)) {
@@ -67,16 +68,22 @@ class ClientesController extends Controller
         // Redimensionar a imagem apenas se ela foi carregada corretamente
         Image::make($foto)->fit(300, 300)->save(public_path("storage/{$path}"));
     }
-
-    if (empty($request->id)) {
-        $cliente = Clientes::create($request->all());
-        $message = "Salvo com sucesso!";
-    } else {
-        $cliente = Clientes::find($request->id);
-        $cliente->update($request->all());
-        $message = "Alterado com sucesso!";
-    }
-
+    //DEFININDO VARIAVEL DE MENSAGEM
+    try {
+        if (empty($request->id)) {
+            $cliente = Clientes::create($request->all());
+            $message = "Salvo com sucesso!";
+        } else {
+            $cliente = Clientes::find($request->id);
+            $cliente->update($request->all());
+            
+            $message = "Alterado com sucesso!";
+           
+        }
+    } catch (\Exception $e) {
+        // Código a ser executado se ocorrer uma exceção
+        return redirect()->back()->withErrors(['erro' => 'Algo deu errado.']);
+    } 
     return redirect('/cliente')->with('success', $message);
 }
     public function deletar($id){

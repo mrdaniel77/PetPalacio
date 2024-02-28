@@ -68,30 +68,7 @@
                            <td class="col-1">                                 
                               <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="abrirDetalhes('{{ $item->nome }}', '{{ $item->raca }}', {{ $item->peso }}, '{{ $item->cliente->nome }}')">                           
                                  <i class="fas fa-eye"></i>
-                              </a>
-                              <!-- Modal -->
-                              <div class="modal fade" id="MyModal"  tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
-                                 <div class="modal-dialog" role="document">
-                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                       <h5 class="modal-title" id="MyModalLabelName"></h5>
-                                       
-                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                       <span aria-hidden="true">&times;</span>
-                                       </button>
-                                    </div>
-                                    <div class="modal-body">   
-                                       <p id="raca" ></p><br>
-                                       <p id="peso" ></p><br>
-                                       <p id="cliente"></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                       <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                    </div>
-                                 </div>
-                                 </div>
-                              </div>
-                              {{-- END MODAL --}}                      
+                              </a>                                               
                               <a href="/pet/editar/{{$item->id}}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                  <i class="fas fa-pen"></i>
                               </a>
@@ -113,13 +90,13 @@
       </div>
    </div>
 </div>
-
+@include('pets.visualizar')
 @include('layout.footer')
 
 <script>
    function abrirDetalhes( nome, raca, peso, nomeCliente ) {
       // Atualiza o conteúdo do modal com os detalhes fornecidos
-      $('#MyModalLabelName').text(nome);
+      $('#nome').text(nome);
       $('#raca').text('Raça: ' + raca);
       $('#peso').text('Peso: ' + peso);
       $('#cliente').text('Nome do cliente: ' + nomeCliente);

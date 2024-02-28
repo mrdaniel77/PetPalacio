@@ -14,8 +14,20 @@
                   <li class="breadcrumb-item "><a href="/" class="harpia-text-color">Dashboard</a></li>
                   <li class="breadcrumb-item active">Clientes</li>
                </ol>
-            </div>
+            </div>           
          </div>
+         @foreach(['success', 'danger'] as $key)
+            @if(session()->has($key))
+               <div class=" row justify-content-end">
+                  <div class="alert alert-{{ $key }} alert-dismissible show fade estilo-alert w-15">
+                     {{ session($key) }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button> 
+                  </div>
+               </div>
+            @endif
+         @endforeach
       </div>
    </div>
    <div class="content corpo">
@@ -64,39 +76,13 @@
                               <td class="col-3"> {{$item->telefone}} </td>
                               <td class="col-2"> {{$item->email}} </td>                                                      
                               <td class="col-1">                                 
-                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarCliente('{{ $item->nome }}', '{{ $item->cpf }}', '{{ $item->telefone }}', '{{ $item->email }}')">                           
+                                 <a class="btn btn-xs mx-1 pt-1 btn-outline-success" onclick="visualizarCliente('{{ $item->nome }}', '{{ $item->cpf }}', '{{ $item->telefone }}', '{{ $item->email }}', '{{ $item->foto }}')">                           
                                     <i class="fas fa-eye"></i>
-                                 </a>
-                                 {{-- MODAL --}}
-                                 <div class="modal fade" id="MyModal"  tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                       <div class="modal-header">
-                                          <h5 class="modal-title" id="MyModalLabelName"></h5>
-                                          
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                          <span aria-hidden="true">&times;</span>
-                                          </button>
-                                       </div>
-                                       <div class="modal-body">   
-                                          <p id="cpf" ></p><br>
-                                          <p id="telefone" ></p><br>
-                                          <p id="email"></p>
-                                       </div>
-                                       <div class="modal-footer">
-                                          <a href="/cliente/exportar-pdf/{{ $item->id }}">
-                                             <button type="button" class="btn btn-danger" data-dismiss="modal">PDF</button>
-                                          </a>
-                                          <button type="button" id="close" onclick="closeModal()" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-                                       </div>
-                                    </div>
-                                    </div>
-                                 </div>
-                                 {{-- END MODAL --}}    
+                                 </a>                                  
                                  <a href="/cliente/editar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-warning" title="Edição">                              
                                     <i class="fas fa-pen"></i>
                                  </a>
-                                 <a href="/cliente/deletar/{{ $item->id }}" class="btn btn-xs mx-1 pt-1 btn-outline-danger" title="Deletar">                              
+                                 <a href="#" class="btn btn-xs mx-1 pt-1 btn-outline-danger" onclick="deletarCliente('/cliente/deletar/{{ $item->id }}')" title="Deletar">                              
                                     <i class="fas fa-trash"></i>
                                  </a>                                             
                               </td>
@@ -109,19 +95,44 @@
       </div>
    </div>
 </div>
+@include('clientes.visualizar')
 @include('layout.footer')
 
 <script>
-   function visualizarCliente( nome, cpf, telefone, email ) {
+   function visualizarCliente( nome, cpf, telefone, email, foto ) {
       // Atualiza o conteúdo do modal com os detalhes fornecidos
-      $('#MyModalLabelName').text(nome);
+      $('#nome').text(nome);
       $('#cpf').text('CPF : ' + cpf);
       $('#telefone').text('Telefone : ' + telefone);
       $('#email').text('E-mail : ' + email);
+      $('#foto').attr('src', 'storage/' + foto);
+      console.log(foto);
       // Abre o modal
       $('#MyModal').modal('show');
    }
    function closeModal(){
       $('#MyModal').modal('hide');
    }
+
+   function deletarCliente(url) {
+    Swal.fire({
+      title: 'Tem Certeza?',
+      text: "Esta ação não pode ser desfeita!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, Deletar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url
+          // Swal.fire(
+          //     'Deletado!',
+          //     'O registro foi deletado!',
+          //     'success'
+          // )
+      }
+    })
+  }
+   
 </script>
